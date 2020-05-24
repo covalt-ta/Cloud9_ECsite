@@ -1,0 +1,11 @@
+%h2.text-center
+  新規商品の追加
+.container
+  = simple_form_for @product do |f|
+    = f.input :name
+    = f.input :description
+    = f.input :price
+    = f.input :unit
+    = f.input :image, as: :file, input_html: {accept: (@product.image.accept_extensions)}
+    .mt-20
+      = f.button :submit, class: "btn-primary"

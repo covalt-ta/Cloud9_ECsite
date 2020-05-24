@@ -1,7 +1,11 @@
-- @products.each do |product|
-    .product
-        %p
-            = product.name
-        %p
-            = product.display_price
-        %hr
+%h2.text-center 商品一覧
+.container
+  .row
+    - @products.each do |product|
+      .col-sm-6.col-md-3
+        .card.img-thumbnail
+          - if product.image.present?
+            = image_tag product.image_url, :width => '200'
+          .card-body.px-2.py-3
+            %h5.card-title= "#{product.name}(#{product.display_price})"
+            %p.card-text= product.description
