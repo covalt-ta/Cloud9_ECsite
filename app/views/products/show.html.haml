@@ -1,2 +1,8 @@
-%h2= @product.name
-%p= @product.description
+= image_tag(@product.image_url || "sample.jpg")
+
+%h2
+  = @product.name
+%p
+  = @product.description
+%p
+  = @product.display_price
