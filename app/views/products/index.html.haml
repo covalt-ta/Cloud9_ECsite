@@ -7,5 +7,5 @@
           - if product.image.present?
             = image_tag product.image_url, :width => '200'
           .card-body.px-2.py-3
-            %h5.card-title= "#{product.name}(#{product.display_price})"
+            %h5.card-title= link_to "#{product.name}(#{product.display_price})", product
             %p.card-text= product.description
