@@ -15,8 +15,10 @@ class Product < ApplicationRecord
     validates :description, presence: true
     validates :price, presence: true
     validates :unit, presence: true
+    
     extend Enumerize
     enumerize :unit, in:[:yen, :usd]
     mount_uploader :image, ImageUploader
     include Hashid::Rails
+    has_many :basket_products, dependent: :destroy
 end

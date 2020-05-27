@@ -7,5 +7,9 @@
 %p
   = @product.display_price
  
+= link_to product_add_to_baskets_path(@product), method: :post do
+  .btn.btn-large.productDetail__btn
+    買い物かごに入れる
+ 
 %button.btn.btn-primary.rounded-pill{:type => "button"}
   買い物かごに入れる
