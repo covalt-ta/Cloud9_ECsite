@@ -117,6 +117,10 @@ GEM
       activesupport (>= 4.0.1)
       hamlit (>= 1.2.0)
       railties (>= 4.0.1)
+    hashid-rails (1.4.0)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
+    hashids (1.0.5)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -280,6 +284,7 @@ DEPENDENCIES
   enumerize
   faker
   hamlit-rails
+  hashid-rails (~> 1.0)
   html2haml
   jbuilder (~> 2.5)
   jquery-rails
