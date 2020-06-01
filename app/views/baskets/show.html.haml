@@ -1,0 +1,18 @@
+.container
+  %h3.text-center.mb-30
+    #{current_user.email}の買い物かごの中身
+  %ul.collection.with-header
+    - @products.each do |product|
+      %li.collection-item
+        #{product.name}
+        #{product.display_price}
+        = link_to product_delete_in_baskets_path(product), method: :post, date: {confirm: "削除してもいいですか？"} do
+          %span.basket_delete
+            ×
+  .basket_total-amount.right
+    合計金額 #{@total_price.to_s(:delimited)}円
+    
+  = form_tag charge_path do
+    - @products.each do |p|
+      = hidden_field_tag 'product_ids[]', p.id
+    %script.stripe-button{"src": "https://checkout.stripe.com/checkout.js", "data": { "key": ENV['STRIPE_API_KEY'], "description": "payment", "amount": @total_price, "locale": "auto", "currency": "jpy"}}
