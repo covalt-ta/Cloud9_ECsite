@@ -8,6 +8,25 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top
+      %a.navbar-brand{:href => "#"} はじめてのECサイト
+      %button.navbar-toggler{"aria-controls" => "Navber", "aria-expanded" => "false", "aria-label" => "ナビゲーションの切替", "data-target" => "#Navber", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #Navber.collapse.navbar-collapse
+        %ul.navbar-nav.ml-auto
+          %li.nav-item.active
+            = link_to "商品一覧", root_path, class: "nav-link"
+            %span.sr-only (現位置)
+          %li.nav-item
+            = link_to "商品登録", new_product_path, class: "nav-link"
+          %li.nav-item
+            = link_to "新規登録", new_user_registration_path, class: "nav-link"
+          %li.nav-item
+            = link_to "ログイン", new_user_session_path, class: "nav-link"
+          %li.nav-item
+            = link_to "ログアウト", destroy_user_session_path, class: "nav-link"
+          %li.nav-item
+            = link_to "買い物かご", basket_path, class: "nav-link"
     %p.notice= notice
     %p.alert= alert
     = yield
