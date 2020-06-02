@@ -18,15 +18,23 @@
             = link_to "商品一覧", root_path, class: "nav-link"
             %span.sr-only (現位置)
           %li.nav-item
-            = link_to "商品登録", new_product_path, class: "nav-link"
+            = link_to "商品登録", new_admins_product_path, class: "nav-link"
           %li.nav-item
             = link_to "新規登録", new_user_registration_path, class: "nav-link"
           %li.nav-item
             = link_to "ログイン", new_user_session_path, class: "nav-link"
           %li.nav-item
-            = link_to "ログアウト", destroy_user_session_path, class: "nav-link"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"
           %li.nav-item
             = link_to "買い物かご", basket_path, class: "nav-link"
+    - if current_admin.present? && current_user.present?
+      = "#{current_admin.email}（Admin）・#{current_user.email}(User)"
+    - elsif current_admin.present?
+      = "#{current_admin.email}（Admin）"
+    - elsif current_user.present?
+      = "#{current_user.email}(User)"
+    - else
+      = "ログインしてません"
     %p.notice= notice
     %p.alert= alert
     = yield

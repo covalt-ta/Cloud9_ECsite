@@ -1,7 +1,7 @@
 %h2.text-center
   新規商品の追加
 .container
-  = simple_form_for @product do |f|
+  = simple_form_for [:admins, @product] do |f|
     = f.input :name
     = f.input :description
     = f.input :price

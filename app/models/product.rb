@@ -23,4 +23,5 @@ class Product < ApplicationRecord
     include Hashid::Rails
     has_many :basket_products, dependent: :destroy
     has_many :purchase_products, dependent: :destroy
+    belongs_to :admin
 end
