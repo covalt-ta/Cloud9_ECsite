@@ -22,6 +22,6 @@ class Product < ApplicationRecord
     mount_uploader :image, ImageUploader
     include Hashid::Rails
     has_many :basket_products, dependent: :destroy
-    has_many :purchase_products, dependent: :destroy
+    has_many :purchase_record_products, dependent: :destroy
     belongs_to :admin
 end

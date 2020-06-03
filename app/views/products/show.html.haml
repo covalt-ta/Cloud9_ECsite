@@ -1,17 +1,13 @@
-= image_tag(@product.image_url || "sample.jpg")
-
-%h2
-  = @product.name
-%p
-  = @product.description
-%p
-  = @product.display_price
- 
-= link_to product_add_to_baskets_path(@product), method: :post do
-  %button.btn.btn-primary.rounded-pill{:type => "button"}
-    買い物かごに入れる
-
-- if user_signed_in?
-  = @current_user.email
-- else
-  = "サインインしてません"
+.container
+  = image_tag(@product.image_url || "sample.jpg")
+  
+  %h2
+    = @product.name
+  %p
+    = @product.description
+  %p
+    = @product.display_price
+   
+  = link_to product_add_to_baskets_path(@product), method: :post do
+    %button.btn.btn-primary.rounded-pill{:type => "button"}
+      買い物かごに入れる

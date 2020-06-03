@@ -4,4 +4,11 @@ class Admin < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
   has_many :products, dependent: :destroy
+  
+  def sales 
+  end
+  
+  def sales_this_manth
+  end
+  
 end
