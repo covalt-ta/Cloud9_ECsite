@@ -95,6 +95,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
+    devise-i18n-views (0.3.7)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -143,6 +146,10 @@ GEM
       addressable (~> 2.7)
     letter_opener (1.7.0)
       launchy (~> 2.2)
+    letter_opener_web (1.4.0)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -286,6 +293,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
+  devise-i18n-views
   dotenv-rails
   enumerize
   faker
@@ -294,7 +303,7 @@ DEPENDENCIES
   html2haml
   jbuilder (~> 2.5)
   jquery-rails
-  letter_opener
+  letter_opener_web
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.1)

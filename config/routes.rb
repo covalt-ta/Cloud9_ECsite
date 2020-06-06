@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'users/show'
   devise_for :admins
   # get 'products/index'
   # get 'products/show'
@@ -17,5 +18,9 @@ Rails.application.routes.draw do
     root to: "dashboards#index"
     resources :products, only: %i(new create)
     resource :sales_record, only: %i(show)
+  end
+  resources :users, only: %i(show)
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 end
