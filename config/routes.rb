@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :products, only: %i(new create)
     resource :sales_record, only: %i(show)
   end
+  namespace :users do
+    resource :purchase_record, only: %i(show)
+  end
   resources :users, only: %i(show)
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

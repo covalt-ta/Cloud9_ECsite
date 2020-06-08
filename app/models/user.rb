@@ -24,6 +24,7 @@ class User < ApplicationRecord
          
   has_one :basket, dependent: :destroy
   has_one :purchase_record, dependent: :destroy
+  has_many :purchase_record_products, through: :purchase_record
   
   def prepare_basket
     basket || create_basket
@@ -35,7 +36,6 @@ class User < ApplicationRecord
 
   def checkout!(token, product_ids:)
     total = basket.total_price(product_ids: product_ids)
-    
     transaction do
       basket_products = basket.basket_products.where(product_id: product_ids)
       basket_products.each(&:destroy!)
@@ -44,7 +44,7 @@ class User < ApplicationRecord
       ids = product_ids.map{ |id| { product_id: id } }
       purchase_record.purchase_record_products.create!(ids)
     end
-    
     Charge.create!(total, token)
   end
+  
 end

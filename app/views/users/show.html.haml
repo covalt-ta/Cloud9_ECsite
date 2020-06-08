@@ -1,2 +1,7 @@
-%p
-  メールアドレス : #{@user.email}
+.container
+  %p
+    メールアドレス : #{@user.email}
+  %p 
+    = link_to '購入履歴', users_purchase_record_path
+  %p
+    = link_to '買い物かご', basket_path

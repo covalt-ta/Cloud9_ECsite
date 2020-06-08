@@ -1,0 +1,19 @@
+.container
+  %h2.text-center
+    購入履歴
+  %table
+    %thead
+      %tr
+        %th 商品名
+        %th 価格
+        %th 購入日時
+    %tbody
+      - @purchase_record_products.each do |purchase_record_product|
+        - product = purchase_record_product.product
+        %tr
+          %td
+            = product.name
+          %td
+            = product.display_price
+          %td
+            = purchase_record_product.created_at
