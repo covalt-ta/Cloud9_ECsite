@@ -4,10 +4,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autoomplete: "name" } %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" } %>
+    <%= f.input :phone_number,
+                required: true,
+                input_html: { autocomplete: "phone_number" } %>
+    <%= f.input :birth_date, use_month_number: true, start_year: 1930, end_year:  (Time.now.year - 10), default: Date.new(1980, 1, 1),
+                required: true %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
