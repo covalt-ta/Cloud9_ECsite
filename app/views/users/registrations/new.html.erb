@@ -17,6 +17,14 @@
                 input_html: { autocomplete: "phone_number" } %>
     <%= f.input :birth_date, use_month_number: true, start_year: 1930, end_year:  (Time.now.year - 10), default: Date.new(1980, 1, 1),
                 required: true %>
+    <%= f.input :postcode %>
+    <%= f.input :prefecture_code, collection: JpPrefecture::Prefecture.all,
+                :label_method => :name,
+                :value_method => :code,
+                include_blank: '都道府県' %>
+    <%= f.input :address_city %>
+    <%= f.input :address_street %>
+    <%= f.input :address_building %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

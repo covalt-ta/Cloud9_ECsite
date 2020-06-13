@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3', '~> 1.3.13'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -56,6 +56,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'annotate'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -76,3 +78,4 @@ gem 'hashid-rails', '~> 1.0'
 gem 'stripe'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'jp_prefecture'

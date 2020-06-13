@@ -26,6 +26,16 @@ class User < ApplicationRecord
   has_one :purchase_record, dependent: :destroy
   has_many :purchase_record_products, through: :purchase_record
   
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+  
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
+  
   def prepare_basket
     basket || create_basket
   end
@@ -46,5 +56,4 @@ class User < ApplicationRecord
     end
     Charge.create!(total, token)
   end
-  
 end

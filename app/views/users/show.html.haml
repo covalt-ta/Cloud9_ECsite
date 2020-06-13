@@ -1,6 +1,12 @@
 .container
   %p
+    名前 : #{@user.name}
+  %p
     メールアドレス : #{@user.email}
+  %p
+    電話番号 : #{@user.phone_number}
+  %p
+    誕生日 : #{@user.birth_date}
   %p 
     = link_to '購入履歴', users_purchase_record_path
   %p

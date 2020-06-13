@@ -74,6 +74,11 @@ ActiveRecord::Schema.define(version: 2020_06_01_051811) do
     t.string "name", default: "", null: false
     t.string "phone_number", null: false
     t.date "birth_date", null: false
+    t.integer "postcode", null: false
+    t.integer "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
